@@ -8,7 +8,7 @@ import Review from './Pages/Home/Review';
 
 function App() {
   return (
-    <div className=''>
+    <div className='container mx-auto'>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
