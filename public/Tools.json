@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "price": 307,
+        "name": "Hand Trowel",
+        "description": "Hand trowels are perfect for transferring dirt into pots or planting seedlings and bulbs. Because they are easy to set down and lose track of while you are working in the garden, look for hand tools with bright handles that are easy to spot in the dirt or greenery.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "1000",
+        "minimumQuantity": "500"
+    },
+    {
+        "id": 2,
+        "price": 272,
+        "name": "Pruning Shears",
+        "description": "This is another tool required no matter how you garden. A lot of cutting and trimming jobs can be handled with a good pair of pruning shears. I find them essential for harvesting herbs, fruits, and vegetables.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "2000",
+        "minimumQuantity": "700"
+    },
+    {
+        "id": 3,
+        "price": 579,
+        "name": "Garden Gloves",
+        "description": "You may not think of these as a tool, but I find gloves to be an indispensable item in my tool shed. Gloves not only protect your hands from getting dirty but also protect you from injury. If you have to deal with thorny branches or prickly plants, gloves will protect your hands and wrists from scratches, scrapes, and splinters.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "3500",
+        "minimumQuantity": "1000"
+    },
+    {
+        "id": 4,
+        "price": 149,
+        "name": "Rake",
+        "description": "Rakes are indispensable tools for anyone with a yard. While leaf rakes can be used for a variety of purposes, a bow rake is great to use in the garden. A bow rake can also be used to clear leaves or spread mulch. Its also perfect for leveling soil or breaking up hard garden dirt in the spring.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "5000",
+        "minimumQuantity": "3000"
+    },
+    {
+        "id": 5,
+        "price": 215,
+        "name": "Digging Shovel",
+        "description": "Shovels are also great for stirring compost piles or mixing potting soil before you add it to your containers. If you need to create a garden or level ground, a sturdy shovel is perfect for turning dirt or removing it. Look for pointed shovels, like the one pictured, for digging. If you find regular shovels are too heavy, some designs are made of lightweight materials but are still perfect for digging in gardens.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "5000",
+        "minimumQuantity": "3000"
+    },
+    {
+        "id": 6,
+        "price": 355,
+        "name": "Garden Spade",
+        "description": "Designed to use in tight spaces, the square-shaped blade is perfect for digging holes for plants and bushes, especially in established gardens where you don’t want to disturb existing plants. I also love them for removing weeds that have deep root systems I cant pull out by hand. If you have a perennial you need to transplant, a spade is perfect to “cut out” the plant from the dirt and then dig a new hole for it.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "6000",
+        "minimumQuantity": "3000"
+    },
+    {
+        "id": 7,
+        "price": 215,
+        "name": "Garden Hoe",
+        "description": "The type of hoe and the size and shape of the blade will be determined by the type of gardening you do. If you are dealing with large areas of dirt or vegetable gardens, you may need a wider hoe. For flower gardens, a delicate blade may work better. Choose a blade width based on your needs, you may even want to buy multiple hoes of different sizes to handle a bigger variety of projects.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "5000",
+        "minimumQuantity": "3000"
+    },
+    {
+        "id": 8,
+        "price": 278,
+        "name": "Hose + Spray Nozzles",
+        "description": "In addition to a hose, make sure you get an adjustable spray nozzle. These not only help you control the water so you are not wasting any water between your garden beds, but they also help you control the way the water is delivered. Many spray nozzles have adjustable spray patterns, allowing you to mist newly planted seeds and seedlings while soaking established plants like tomatoes or flower bushes that need lots of water in the heat of summer.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "5000",
+        "minimumQuantity": "3000"
+    },
+    {
+        "id": 9,
+        "price": 215,
+        "name": "Wheelbarrow",
+        "description": "A traditional wheelbarrow design will be best if you are often moving soil or compost as its easy to dump your load once you read your destination. If you mostly need to move tools or plants then a cart design might work better for you.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "1500",
+        "minimumQuantity": "800"
+    },
+    {
+        "id": 10,
+        "price": 200,
+        "name": "Loppers",
+        "description": "A nice pair of loppers (like the one pictured) will allow you to cut branches up to 1-2″ in diameter. When you are shopping, make sure to pay attention to the max thickness the loppers will cut. Usually, longer loppers can cut thicker branches. If can afford the extra cost, buy one that can handle 2″ branches.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "12000",
+        "minimumQuantity": "5000"
+    },
+    {
+        "id": 11,
+        "price": 200,
+        "name": "Weeder",
+        "description": "Weeds are the bane of an gardener’s existence and can be a major pain to remove. Luckily there are a few handy tools to use to battle weeds in your garden. The first is a hand weeder (pictured), which some call a dandelion digger. It’s designed to help remove weeds with a tap root, with the tines penetrating the soil to easily pull the weed out.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "12000",
+        "minimumQuantity": "5000"
+    },
+    {
+        "id": 12,
+        "price": 270,
+        "name": "Hori Hori Garden Knife",
+        "description": "Sometimes referred to as a garden knife, the hori hori originated in Japan, but has become popular with gardeners across the world. It’s a stainless steal blade that is slightly curved with a sharp edge and a serrated edge. That makes it perfect for cutting through soil or roots. Some people even use it as a weeder.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "1000",
+        "minimumQuantity": "500"
+    },
+    {
+        "id": 13,
+        "price": 200,
+        "name": "Spading Fork",
+        "description": "It’s called a spading fork because there are some scenarios where it works better than a traditional spade since it’s perfect for raking out weeds or breaking up clumps of dirt in tight spaces in already established gardens. Available in full-size or handheld models, pick one that works best for the size of your garden. Container gardeners will do just fine with a handheld spading fork, but those with raised beds or traditional garden beds may find a full-size tool will work best.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "12000",
+        "minimumQuantity": "5000"
+    },
+    {
+        "id": 14,
+        "price": 250,
+        "name": "Pruning Saw",
+        "description": "If you have branches too thick for your lopper to cut, then a pruning saw is the tool you need. These tools are the middle ground between a lopper and a handsaw or chain saw. The one pruning saw pictures can cut through branches of to 8 inches thick, perfect for pruning trees in your yard. You can also use it for shrubs and plants.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "12000",
+        "minimumQuantity": "5000"
+    },
+    {
+        "id": 15,
+        "price": 250,
+        "name": "Edger",
+        "description": "An edger is a specialized tool that doesn’t have a lot of uses, but if you want to create clearly defined lines in your yard, it’s the perfect way to separate the grass from your garden. The created lines will make your yard and pathways look tidy and well planned.",
+        "img": "Jimenez Peters",
+        "availableQuantity": "2000",
+        "minimumQuantity": "500"
+    }
+]
