@@ -8,7 +8,7 @@ import banner5 from '../../Assets/images/banner5.png'
 
 const Banner = () => {
     return (
-        <div class="carousel rounded-box">
+        <div class="carousel rounded-box mb-5 mt-5">
             <div class="carousel-item">
                 <img src={banner4} alt="banner1" />
             </div>

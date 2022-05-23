@@ -14,6 +14,7 @@ module.exports = {
           info: "#3ABFF8",
           warning: "#FBBD23",
           "base-100": "#ffffff",
+
         },
       },
       "dark",
