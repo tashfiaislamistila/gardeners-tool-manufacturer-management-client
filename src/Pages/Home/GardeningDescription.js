@@ -4,7 +4,7 @@ import React from 'react';
 const GardeningDescription = () => {
     return (
         <div className='flex justify-center mb-6 mt-6'>
-            <div class="hero " style={{ backgroundImage: "url(" + "https://i.ibb.co/wMTh6W4/children.png" + ")", height: "50vh", width: "130vh", }}>
+            <div class="hero " style={{ backgroundImage: "url(" + "https://i.ibb.co/wMTh6W4/children.png" + ")", height: "50vh", width: "150vh", }}>
                 <div class="hero-overlay bg-opacity-50 "></div>
                 <div class="hero-content text-center text-neutral-content ">
                     <div class="max-w-md ">
