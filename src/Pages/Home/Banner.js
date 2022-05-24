@@ -3,7 +3,7 @@ import banner1 from '../../Assets/images/banner1.png'
 import banner2 from '../../Assets/images/banner2.png'
 import banner3 from '../../Assets/images/banner3.png'
 import banner4 from '../../Assets/images/banner4.png'
-import banner5 from '../../Assets/images/banner5.png'
+import children from '../../Assets/images/children.png'
 
 
 const Banner = () => {
@@ -20,6 +20,9 @@ const Banner = () => {
             </div>
             <div class="carousel-item">
                 <img src={banner3} alt="banner4" />
+            </div>
+            <div class="carousel-item">
+                <img src={children} alt="banner4" />
             </div>
 
         </div>

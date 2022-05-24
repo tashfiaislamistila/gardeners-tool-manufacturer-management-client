@@ -6,7 +6,7 @@ const AllTools = () => {
     const [tools] = useTools();
     return (
 
-        <div className='p-8'>
+        <div className='p-16 '>
             <div className='text-6xl text-center '>
                 <h1> All Tools</h1>
             </div>

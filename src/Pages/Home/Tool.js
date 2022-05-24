@@ -7,7 +7,7 @@ const Tool = ({ tool }) => {
         <div >
             <div class="card lg:card-side bg-base-100 shadow-xl mt-9">
                 <figure><img style={{ width: "350px", height: "450px" }} src={img} alt="Album" /></figure>
-                <div class="card-body ">
+                <div class="card-body w-9/12">
                     <h1 className="card-title text-4xl">{name}</h1>
                     <h2 className='text-2xl'>{description}</h2>
                     <h3 className='text-2xl mt-4'>Price : ${price}</h3>
