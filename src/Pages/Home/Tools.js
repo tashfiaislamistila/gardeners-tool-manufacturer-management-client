@@ -7,7 +7,7 @@ const Tools = () => {
     const [tools] = useTools();
     const navigate = useNavigate();
     const showAllTools = () => {
-        navigate('/tool')
+        navigate('/tools')
     }
 
     return (
@@ -23,7 +23,7 @@ const Tools = () => {
                 }
             </div>
             <div className='text-center mt-9'>
-                <button onClick={showAllTools} class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary">All Tools</button>
+                <button onClick={showAllTools} class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary">Load More Tools</button>
             </div>
         </div>
     );

@@ -3,17 +3,19 @@ import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import BusinessSummery from './BusinessSummery';
 import GardeningDescription from './GardeningDescription';
-import Tool from './Tool';
+import Info from './Info';
 import Tools from './Tools';
+
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <BusinessSummery></BusinessSummery>
             <Tools></Tools>
+            <BusinessSummery></BusinessSummery>
             <GardeningDescription></GardeningDescription>
-            <Footer></Footer>
+            <Info ></Info>
+
         </div>
     );
 };
