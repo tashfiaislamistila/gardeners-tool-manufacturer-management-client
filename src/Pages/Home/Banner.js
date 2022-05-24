@@ -21,10 +21,6 @@ const Banner = () => {
             <div class="carousel-item">
                 <img src={banner3} alt="banner4" />
             </div>
-            <div class="carousel-item">
-                <img src={banner5} alt="banner5" />
-            </div>
-
 
         </div>
     );
