@@ -6,7 +6,7 @@ const Review = () => {
     const [reviews] = useReviews();
     return (
         <div>
-            <h1 className='text-6xl text-center mt-6'> Customers reviews</h1>
+            <h1 className='text-4xl text-center mt-6'> What Our Customer Says</h1>
             <div className='grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-4 pt-10 '  >
                 {
                     reviews.map(review => <ReviewComponent
