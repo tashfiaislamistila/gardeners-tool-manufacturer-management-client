@@ -9,7 +9,7 @@ import Tools from './Tools';
 
 const Home = () => {
     return (
-        <div>
+        <div className='px-12'>
             <Banner></Banner>
             <Tools></Tools>
             <BusinessSummery></BusinessSummery>
