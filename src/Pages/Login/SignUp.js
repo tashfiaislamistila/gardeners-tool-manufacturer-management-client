@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
@@ -33,7 +33,7 @@ const Login = () => {
         <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div class="form-control w-full max-w-xs">
@@ -82,9 +82,9 @@ const Login = () => {
                             </label>
                         </div>
                         {signInError}
-                        <input className='btn btn-primary w-full max-w-xs text-white ' type="submit" value="Login" />
+                        <input className='btn btn-primary w-full max-w-xs text-white ' type="submit" value="SignUp" />
                     </form>
-                    <p><small>New to Gardeners tool? <Link className='text-primary' to='/signup'>Create New Account</Link></small></p>
+                    <p><small>Already have an account? <Link className='text-primary' to='/login'>Please login</Link></small></p>
                     <div className="divider" > OR</div >
                     <button
                         onClick={() => signInWithGoogle()}
@@ -95,4 +95,4 @@ const Login = () => {
     );
 };
 
-export default Login; <h2>This is login</h2>
+export default SignUp;

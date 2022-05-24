@@ -21,7 +21,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div >
-                <a className=" normal-case text-4xl px-5" > Gardener's Tool Management</a>
+                <a className=" normal-case text-4xl px-5" > Gardener's Tool </a>
             </div >
             <div className="navbar-center hidden lg:flex" >
                 <ul className="menu menu-horizontal p-0" >

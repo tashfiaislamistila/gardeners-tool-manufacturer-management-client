@@ -8,6 +8,7 @@ import Review from './Pages/Home/Review';
 import Tool from './Pages/Home/Tool';
 import AllTools from './Pages/Home/AllTools';
 import Footer from './Pages/Shared/Footer';
+import SignUp from './Pages/Login/SignUp';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="blogs" element={<Blogs />} />
         <Route path="review" element={<Review />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
       <Footer></Footer>
     </div>
