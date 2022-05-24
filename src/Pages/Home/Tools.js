@@ -6,6 +6,10 @@ import Tool from './Tool';
 const Tools = () => {
     const [tools] = useTools();
     const navigate = useNavigate();
+    const showAllTools = () => {
+        navigate('/tool')
+    }
+
     return (
         <div className='container mx-auto'>
             <div className='text-6xl text-center mt-9'>
@@ -19,7 +23,7 @@ const Tools = () => {
                 }
             </div>
             <div className='text-center mt-9'>
-                <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary">All Tools</button>
+                <button onClick={showAllTools} class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-primary">All Tools</button>
             </div>
         </div>
     );

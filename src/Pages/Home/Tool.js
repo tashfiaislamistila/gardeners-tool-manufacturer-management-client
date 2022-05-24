@@ -2,11 +2,9 @@ import React from 'react';
 
 
 const Tool = ({ tool }) => {
-
-    const { id, name, price, description, img, availableQuantity, minimumQuantity } = tool;
-
+    const { name, price, description, img, availableQuantity, minimumQuantity } = tool;
     return (
-        <div>
+        <div >
             <div class="card lg:card-side bg-base-100 shadow-xl mt-9">
                 <figure><img style={{ width: "350px", height: "450px" }} src={img} alt="Album" /></figure>
                 <div class="card-body ">

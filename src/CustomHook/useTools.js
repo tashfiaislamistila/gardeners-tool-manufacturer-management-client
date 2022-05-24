@@ -6,7 +6,6 @@ const useTools = () => {
         fetch('tools.json')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setTools(data)
             });
     }, []);
