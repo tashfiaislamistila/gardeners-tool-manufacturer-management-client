@@ -2,9 +2,9 @@ import React from 'react';
 
 const BusinessSummery = () => {
     return (
-        <div className='shadow-lg mb-9 '>
+        <div className=' mb-9 '>
             <h1 className='text-6xl text-center mt-9'>Business Summary Of Gardeners Tool</h1>
-            <div className='text-center mt-9'>
+            <div className='text-center mt-9  '>
                 <div class="stats stats-vertical lg:stats-horizontal shadow text-center">
 
                     <div class="stat ">
