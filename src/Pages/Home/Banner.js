@@ -8,24 +8,24 @@ import children from '../../Assets/images/children.png'
 
 const Banner = () => {
     return (
-        <div class="carousel mb-5 ">
-            <div class="carousel-item">
+        <div className="carousel mb-5 ">
+            < div className="carousel-item" >
                 <img src={banner4} alt="banner1" />
-            </div>
-            <div class="carousel-item">
+            </div >
+            <div className="carousel-item" >
                 <img src={banner2} alt="banner2" />
-            </div>
-            <div class="carousel-item">
+            </div >
+            <div className="carousel-item" >
                 <img src={banner1} alt="banner3" />
-            </div>
-            <div class="carousel-item">
+            </div >
+            <div className="carousel-item" >
                 <img src={banner3} alt="banner4" />
-            </div>
-            <div class="carousel-item">
+            </div >
+            <div className="carousel-item" >
                 <img src={children} alt="banner4" />
-            </div>
+            </div >
 
-        </div>
+        </div >
     );
 };
 

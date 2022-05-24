@@ -9,14 +9,14 @@
     {
         "id": 2,
         "image": "https://i.ibb.co/x77Sxj6/person2.png",
-        "rating": 2.0,
+        "rating": 5.0,
         "name": "Briggs Chen",
         "review": "Though there are cheaper garden knives on the market, but I say the Nisaku Japanese Hori Hori Digging Tool is worth the slight splurge because of a durable, 6 1/2-inch stainless steel blade that slices through the soil with ease. Experts with Garden Tool Review say it will stand up to any kind of abuse, even getting lost in inclement weather."
     },
     {
         "id": 3,
         "image": "https://i.ibb.co/W02mvSX/person3.png",
-        "rating": 4.0,
+        "rating": 4.5,
         "name": "Espinoza Holman",
         "review": "Users love the versatility of the Digging Shovel, which they say is extraordinarily effective at uprooting even the toughest weeds. Its slightly concave shape also makes it useful for light planting, dividing flowers and transferring small plants, while others even use it as a hunting and fishing aid. Features include a vinyl plastic sheath with a belt loop, a sturdy wooden handle and measurements on the knife itself that help users track soil depth."
     },
@@ -30,14 +30,14 @@
     {
         "id": 5,
         "image": "https://i.ibb.co/R0JJzST/person5.png",
-        "rating": 5.0,
+        "rating": 3.0,
         "name": "Schneider Mullen",
         "review": "Buyers insist that the Bully Tools 82515 14-Gauge Round Point Shovel is the last shovel gardeners will ever have to purchase because its durable, versatile, and effective enough for nearly all uses. Its also American-made and backed by a lifetime warranty."
     },
     {
         "id": 6,
         "image": "https://i.ibb.co/2v8B6Wj/person6.png",
-        "rating": 4.0,
+        "rating": 4.5,
         "name": "Barry Clayton",
         "review": "The Razor-Back Rake can be used to clean up leaves in the fall or to remove debris from your yard or garden. It boasts 24 steel tines connected to a special head thats designed to keep the tines from coming loose. The rakes flexible coil spring enables a smooth raking action, so you wont be struggling as you clean up your yard, and the 9 cushioned grip will ensure your hands dont cramp up. The Razor-Back Rakes handle is 51 long, and its made of fiberglass, which is stronger than a standard wooden handle."
     }
