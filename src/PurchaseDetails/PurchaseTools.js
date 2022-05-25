@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import usePurchaseTools from '../CustomHook/usePurchaseTools';
 import auth from '../firebase.init';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const PurchaseTools = () => {
     const { toolsId } = useParams();
@@ -65,20 +65,21 @@ const PurchaseTools = () => {
                 console.log(data);
             })
 
-
-
-        //         method: 'PUT',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(newInventory)
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => console.log(data));
-        //     alert("Item delivered")
-
-
+        //Update Available Quantity in the Database after purchasing product
+        fetch(`http://localhost:5000/tools/${toolsId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Purchase confirmed')
+            })
     }
+
     return (
         <div className="">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
@@ -108,6 +109,7 @@ const PurchaseTools = () => {
                     <p className='text-blue-500'>Total Price: ${totalPrice}</p>
                     <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
                 </form>
+                <ToastContainer />
             </div>
         </div>
 
