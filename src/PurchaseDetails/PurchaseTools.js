@@ -12,7 +12,7 @@ const PurchaseTools = () => {
     const [error, setError] = useState('');
     const [totalPrice, setPrice] = useState(null);
     const [disabled, setDisabled] = useState(false)
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const handleOrder = (event) => {
         const orderQuantity = parseInt(event.target.value);
