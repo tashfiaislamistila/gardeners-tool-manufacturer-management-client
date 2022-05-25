@@ -51,11 +51,22 @@ const PurchaseTools = () => {
         let newAvailableQuantity = parseInt(availableQuantity) - parseInt(orderQuantity);
         const newProduct = { ...tool, availableQuantity: newAvailableQuantity }
         setTool(newProduct);
-        // let newSold = parseInt(sold) + 1;
-        // const newInventory = { ...inventory, quantity: newQuantity }
-        // setInventory(newInventory);
-        //     const url = `http://localhost:5000/tools/${id}`
-        //     fetch(url, {
+
+        //Posting the data to the database with a new collection
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchase)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+
+
+
         //         method: 'PUT',
         //         headers: {
         //             'content-type': 'application/json'
@@ -66,8 +77,8 @@ const PurchaseTools = () => {
         //         .then(data => console.log(data));
         //     alert("Item delivered")
 
-    }
 
+    }
     return (
         <div className="">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
