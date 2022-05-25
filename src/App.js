@@ -11,7 +11,9 @@ import Footer from './Pages/Shared/Footer';
 import SignUp from './Pages/Login/SignUp';
 import PurchaseTools from './PurchaseDetails/PurchaseTools';
 import RequireAuth from './Pages/Login/RequireAuth';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Pages/Dashboard/Dashboard';
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12 '>
@@ -25,11 +27,17 @@ function App() {
             <PurchaseTools />
           </RequireAuth>
         }></Route>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }></Route>
         <Route path="blogs" element={<Blogs />} />
         <Route path="review" element={<Review />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </div>
   );

@@ -3,8 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import usePurchaseTools from '../CustomHook/usePurchaseTools';
 import auth from '../firebase.init';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
 const PurchaseTools = () => {
     const { toolsId } = useParams();
     const [tool, setTool] = usePurchaseTools(toolsId);
@@ -112,7 +112,7 @@ const PurchaseTools = () => {
                     <p className='text-primary'>Total Price: ${totalPrice}</p>
                     <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
                 </form>
-                <ToastContainer />
+
             </div>
         </div>
 
