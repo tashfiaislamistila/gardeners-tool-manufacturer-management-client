@@ -1,14 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import usePurchaseTools from '../CustomHook/usePurchaseTools';
 import auth from '../firebase.init';
+import { toast } from 'react-toastify';
 
 const PurchaseTools = () => {
     const { toolsId } = useParams();
-    const [tool] = usePurchaseTools(toolsId)
+    const [tool, setTool] = usePurchaseTools(toolsId);
     const { name, price, description, img, availableQuantity, minimumQuantity } = tool;
-    const [user, loading, error] = useAuthState(auth);
+    const [error, setError] = useState('');
+    const [totalPrice, setPrice] = useState(null);
+    const [disabled, setDisabled] = useState(false)
+    const [user, loading] = useAuthState(auth);
+
+    const handleOrder = (event) => {
+        const orderQuantity = parseInt(event.target.value);
+        console.log(orderQuantity);
+        if (orderQuantity < minimumQuantity) {
+            console.log(orderQuantity);
+            // console.log(minQuantity);
+            setError('Ordered Quantity is less than minimum quantity')
+            setDisabled(true)
+
+        }
+        else if (orderQuantity > availableQuantity) {
+            setError('Ordered Quantity is more than available quantity in stock')
+            setDisabled(true)
+        }
+        else if (orderQuantity < availableQuantity || orderQuantity > minimumQuantity) {
+            setError('')
+            setDisabled(false)
+        }
+    }
+    const handlePurchase = event => {
+        event.preventDefault();
+        const orderQuantity = event.target.orderQuantity.value;
+        const purchase = {
+            toolName: name,
+            orderQuantity,
+            price,
+            customerEmail: user.email,
+            customerName: user.displayName,
+            phone: event.target.address.value,
+            address: event.target.phone.value,
+            totalPrice
+        }
+        console.log(purchase);
+
+        let newAvailableQuantity = parseInt(availableQuantity) - parseInt(orderQuantity);
+        const newProduct = { ...tool, availableQuantity: newAvailableQuantity }
+        setTool(newProduct);
+        // let newSold = parseInt(sold) + 1;
+        // const newInventory = { ...inventory, quantity: newQuantity }
+        // setInventory(newInventory);
+        //     const url = `http://localhost:5000/tools/${id}`
+        //     fetch(url, {
+        //         method: 'PUT',
+        //         headers: {
+        //             'content-type': 'application/json'
+        //         },
+        //         body: JSON.stringify(newInventory)
+        //     })
+        //         .then(res => res.json())
+        //         .then(data => console.log(data));
+        //     alert("Item delivered")
+
+    }
+
     return (
         <div className="">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
@@ -25,59 +84,24 @@ const PurchaseTools = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card  w-full max-w-md shadow-2xl bg-base-100">
-                    <div class="card-body">
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Name</span>
-                            </label>
-                            <input type="text" placeholder="name" disabled value={user?.displayName || ''} class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
-                            </label>
-                            <input type="text" placeholder="email" disabled value={user?.email
-                                || ''} class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Address</span>
-                            </label>
-                            <input type="text" placeholder="address" class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Phone Number</span>
-                            </label>
-                            <input type="text" placeholder="number" class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text"> Total Price</span>
-                            </label>
-                            <input type="number" placeholder="price" class="input input-bordered" required />
-                        </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Add Quantity</span>
-                            </label>
-                            <input type="number" placeholder="Quantity" class="input input-bordered" required />
-                        </div>
-                        {/* <div>
-                            <input type="submit" value="Submit" className='btn btn-primary w-full max-w-xs' />
-                        </div> */}
-                        {<div class="form-control mt-6">
-                            <button value="submit" class="btn btn-primary">Submit</button>
-                        </div>}
-                    </div>
-                </div>
+                <form onSubmit={handlePurchase} className='grid  grid-cols-1 gap-3 justify-items-center mt-2'>
+                    <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
+                    <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
+                    <input type="text" name='address' placeholder="Your Address" className="input input-bordered w-full max-w-xs" />
+                    <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+                    <label className="label">
+                        Order Quantity
+                    </label>
+                    <p className='text-red-500'> {error}</p>
+                    <input type="number" name='orderQuantity' defaultValue={minimumQuantity} onChange={handleOrder} placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" required />
+                    <p className='text-blue-500'>Total Price: ${totalPrice}</p>
+                    <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
+                </form>
             </div>
         </div>
 
 
 
     );
-};
-
+}
 export default PurchaseTools;
