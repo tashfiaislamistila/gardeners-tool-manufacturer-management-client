@@ -10,6 +10,7 @@ import AllTools from './Pages/Home/AllTools';
 import Footer from './Pages/Shared/Footer';
 import SignUp from './Pages/Login/SignUp';
 import PurchaseTools from './PurchaseDetails/PurchaseTools';
+import RequireAuth from './Pages/Login/RequireAuth';
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="tools" element={<AllTools />} />
+        <Route path="tool" element={<AllTools />} />
         <Route path='/tools/:toolsId' element={
-          <PurchaseTools />
+          <RequireAuth>
+            <PurchaseTools />
+          </RequireAuth>
         }></Route>
         <Route path="blogs" element={<Blogs />} />
         <Route path="review" element={<Review />} />

@@ -7,7 +7,7 @@ const Tools = () => {
     const [tools] = useTools();
     const navigate = useNavigate();
     const showAllTools = () => {
-        navigate('/tools')
+        navigate('/tool')
     }
 
     return (
