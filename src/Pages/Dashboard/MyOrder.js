@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
-    const [user, loading, error] = useAuthState(auth);
-    const [orders, setOrders] = useState([]);
+    const [user] = useAuthState(auth);
+    // const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
-                .then(res => res.json())
-                .then(data => setOrders(data));
-        }
-    }, [user])
+    const { data: orders, isLoading } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
+        .then(res => res.json()))
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    // useEffect(() => {
+    //     if (user) {
+    //         fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
+    //             .then(res => res.json())
+    //             .then(data => setOrders(data));
+    //     }
+    // }, [user])
     return (
         <div>
             <h1 className='text-center  text-secondary text-2xl mb-4 mt-4'>My Orders: {orders.length}</h1>
@@ -31,7 +38,7 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr>
+                            orders?.map((order, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
                                 <td>{order.orderQuantity}</td>
