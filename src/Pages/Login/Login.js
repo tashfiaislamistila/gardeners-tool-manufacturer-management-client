@@ -44,7 +44,6 @@ const Login = () => {
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">Email</span>
-
                             </label>
                             <input type="email" placeholder="Your Email" class="input input-bordered w-full max-w-xs"
                                 {...register("email", {
@@ -63,11 +62,9 @@ const Login = () => {
                                 {errors.email?.type === 'pattern' && <span class="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
-
                         <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text">Password</span>
-
                             </label>
                             <input type="password" placeholder="Password" class="input input-bordered w-full max-w-xs"
                                 {...register("password", {

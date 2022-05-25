@@ -1,12 +1,14 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import usePurchaseTools from '../CustomHook/usePurchaseTools';
+import auth from '../firebase.init';
 
 const PurchaseTools = () => {
     const { toolsId } = useParams();
     const [tool] = usePurchaseTools(toolsId)
     const { name, price, description, img, availableQuantity, minimumQuantity } = tool;
-
+    const [user, loading, error] = useAuthState(auth);
     return (
         <div className="">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
@@ -23,37 +25,44 @@ const PurchaseTools = () => {
                         </div>
                     </div>
                 </div>
-                <div class="card mt-12  w-full max-w-sm shadow-2xl bg-base-100">
+                <div class="card  w-full max-w-md shadow-2xl bg-base-100">
                     <div class="card-body">
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="name" class="input input-bordered" />
+                            <input type="text" placeholder="name" disabled value={user?.displayName || ''} class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" class="input input-bordered" />
+                            <input type="text" placeholder="email" disabled value={user?.email
+                                || ''} class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Address</span>
                             </label>
-                            <input type="text" placeholder="address" class="input input-bordered" />
+                            <input type="text" placeholder="address" class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Phone Number</span>
                             </label>
-                            <input type="text" placeholder="number" class="input input-bordered" />
+                            <input type="text" placeholder="number" class="input input-bordered" required />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text"> Total Price</span>
+                            </label>
+                            <input type="number" placeholder="price" class="input input-bordered" required />
                         </div>
                         <div class="form-control">
                             <label class="label">
                                 <span class="label-text">Add Quantity</span>
                             </label>
-                            <input type="number" placeholder="Quantity" class="input input-bordered" />
+                            <input type="number" placeholder="Quantity" class="input input-bordered" required />
                         </div>
                         {/* <div>
                             <input type="submit" value="Submit" className='btn btn-primary w-full max-w-xs' />
