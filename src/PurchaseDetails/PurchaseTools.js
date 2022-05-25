@@ -9,9 +9,9 @@ const PurchaseTools = () => {
 
     return (
         <div className="">
-            <h1 className='text-center text-2xl mt-9'>Purchase Details</h1>
+            <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
             <div className='flex justify-center items-center gap-4 pt-10'>
-                <div className='card lg:card-side bg-base-100 shadow-xl mt-9 p-4 text-center'>
+                <div className='card lg:card-side bg-base-100  mt-9 p-4 text-center'>
                     <div className="card w-96  bg-base-100 shadow-xl">
                         <figure><img src={img} alt="Shoes" /></figure>
                         <div className="card-body">
@@ -23,7 +23,6 @@ const PurchaseTools = () => {
                         </div>
                     </div>
                 </div>
-
                 <div class="card mt-12  w-full max-w-sm shadow-2xl bg-base-100">
                     <div class="card-body">
                         <div class="form-control">
@@ -52,13 +51,16 @@ const PurchaseTools = () => {
                         </div>
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text"> Quantity</span>
+                                <span class="label-text">Add Quantity</span>
                             </label>
                             <input type="number" placeholder="Quantity" class="input input-bordered" />
                         </div>
-                        <div class="form-control mt-6">
-                            <button class="btn btn-primary">Add Quantity</button>
-                        </div>
+                        {/* <div>
+                            <input type="submit" value="Submit" className='btn btn-primary w-full max-w-xs' />
+                        </div> */}
+                        {<div class="form-control mt-6">
+                            <button value="submit" class="btn btn-primary">Submit</button>
+                        </div>}
                     </div>
                 </div>
             </div>
