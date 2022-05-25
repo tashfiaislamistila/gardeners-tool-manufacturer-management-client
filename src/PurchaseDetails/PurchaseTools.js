@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import usePurchaseTools from '../CustomHook/usePurchaseTools';
 import auth from '../firebase.init';
 import { toast, ToastContainer } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css';
 const PurchaseTools = () => {
     const { toolsId } = useParams();
     const [tool, setTool] = usePurchaseTools(toolsId);
@@ -84,7 +84,7 @@ const PurchaseTools = () => {
         <div className="">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
             <div className='flex justify-center items-center gap-4 pt-10'>
-                <div className='card lg:card-side bg-base-100  mt-9 p-4 text-center'>
+                <div className='card lg:card-side bg-base-w-2/4  mt-9 p-4 text-center'>
                     <div className="card w-96  bg-base-100 shadow-xl">
                         <figure><img src={img} alt="Shoes" /></figure>
                         <div className="card-body">
@@ -96,7 +96,7 @@ const PurchaseTools = () => {
                         </div>
                     </div>
                 </div>
-                <form onSubmit={handlePurchase} className='grid  grid-cols-1 gap-3 justify-items-center mt-2'>
+                <form onSubmit={handlePurchase} className='grid grid-cols-1 gap-3 justify-items-center mt-2 w-1/3'>
                     <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                     <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                     <input type="text" name='address' placeholder="Your Address" className="input input-bordered w-full max-w-xs" />
@@ -104,7 +104,7 @@ const PurchaseTools = () => {
                     <label className="label">
                         Order Quantity
                     </label>
-                    <p className='text-red-500'> {error}</p>
+                    <p className='text-red-500 w-3/4'> {error}</p>
                     <input type="number" name='orderQuantity' defaultValue={minimumQuantity} onChange={handleOrder} placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" required />
                     <p className='text-blue-500'>Total Price: ${totalPrice}</p>
                     <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />

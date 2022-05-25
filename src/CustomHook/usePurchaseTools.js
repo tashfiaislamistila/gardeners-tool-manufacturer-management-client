@@ -12,6 +12,6 @@ const usePurchaseTools = toolsId => {
                 setTool(data));
 
     }, [toolsId]);
-    return [tool]
+    return [tool, setTool]
 }
 export default usePurchaseTools;
