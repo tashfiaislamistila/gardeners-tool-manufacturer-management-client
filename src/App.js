@@ -9,15 +9,19 @@ import Tool from './Pages/Home/Tool';
 import AllTools from './Pages/Home/AllTools';
 import Footer from './Pages/Shared/Footer';
 import SignUp from './Pages/Login/SignUp';
+import PurchaseTools from './PurchaseDetails/PurchaseTools';
 
 function App() {
   return (
-    <div className='max-w-7xl mx-auto px-12'>
+    <div className='max-w-7xl mx-auto px-12 '>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="tools" element={<AllTools />} />
+        <Route path='/tools/:toolsId' element={
+          <PurchaseTools />
+        }></Route>
         <Route path="blogs" element={<Blogs />} />
         <Route path="review" element={<Review />} />
         <Route path="login" element={<Login />} />
