@@ -36,6 +36,9 @@ const PurchaseTools = () => {
     const handlePurchase = event => {
         event.preventDefault();
         const orderQuantity = event.target.orderQuantity.value;
+        const totalPrice = orderQuantity * price;
+        setPrice(totalPrice);
+
         const purchase = {
             toolName: name,
             orderQuantity,
@@ -106,7 +109,7 @@ const PurchaseTools = () => {
                     </label>
                     <p className='text-red-500 w-3/4'> {error}</p>
                     <input type="number" name='orderQuantity' defaultValue={minimumQuantity} onChange={handleOrder} placeholder="Order Quantity" className="input input-bordered w-full max-w-xs" required />
-                    <p className='text-blue-500'>Total Price: ${totalPrice}</p>
+                    <p className='text-primary'>Total Price: ${totalPrice}</p>
                     <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
                 </form>
                 <ToastContainer />
