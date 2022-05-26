@@ -26,19 +26,22 @@ const SignUp = () => {
     if (loading || gLoading || updating) {
         return <Loading></Loading>
     }
+
     if (error || gError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
+
     if (token) {
         navigate('/tools/:toolsId')
     }
+
     const onSubmit = async data => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('update done');
-
     }
+
     return (
         <div className='flex justify-center items-center h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
