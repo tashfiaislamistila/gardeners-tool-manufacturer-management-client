@@ -52,8 +52,8 @@ const MyOrder = () => {
                             <th>Buyers Name</th>
                             <th>Tools Name</th>
                             <th>Quantity</th>
-                            <th>Buyers Email</th>
-                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Number</th>
                             <th>Address</th>
                             <th>Total Price</th>
                         </tr>
