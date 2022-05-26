@@ -43,7 +43,7 @@ const MyOrder = () => {
 
     return (
         <div>
-            <h1 className='text-center  text-secondary text-2xl mb-4 mt-4'>My Orders: {orders.length}</h1>
+            <h1 className='text-center  text-secondary text-2xl mb-4 mt-4'>Manage Orders: {orders.length}</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -51,8 +51,8 @@ const MyOrder = () => {
                             <th>serial</th>
                             <th>Buyers Name</th>
                             <th>Tools Name</th>
-                            <th>Order Quantity</th>
-                            <th>Customer Email</th>
+                            <th>Quantity</th>
+                            <th>Buyers Email</th>
                             <th>Phone Number</th>
                             <th>Address</th>
                             <th>Total Price</th>
