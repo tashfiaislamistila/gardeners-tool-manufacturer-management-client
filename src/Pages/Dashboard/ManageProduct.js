@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import useTools from '../../CustomHook/useTools';
 import Loading from '../Shared/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import ProductRow from './ProductRow';
@@ -38,7 +37,6 @@ const ManageProduct = () => {
                                 setDeletingProduct={setDeletingProduct}
                             ></ProductRow>)
                         }
-
                     </tbody>
                 </table>
             </div>

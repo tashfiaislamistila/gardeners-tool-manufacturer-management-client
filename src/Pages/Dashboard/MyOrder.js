@@ -1,24 +1,26 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import DeleteConfirmModalForMyOrder from './DeleteConfirmModalForMyOrder';
 
 const MyOrder = () => {
+    const [deletingOrder, setDeletingOrder] = useState(null);
+
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
     // const [orders, setOrders] = useState([]);
 
     //use React Query
-    const { data: orders, isLoading } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     })
-
         .then(res => {
             console.log('res', res);
             if (res.status === 401 || res.status === 403) {
@@ -56,6 +58,7 @@ const MyOrder = () => {
                             <th>Number</th>
                             <th>Address</th>
                             <th>Total Price</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,12 +72,21 @@ const MyOrder = () => {
                                 <td>{order.address}</td>
                                 <td>{order.phone}</td>
                                 <td>{order.totalPrice}</td>
+                                <td><label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label></td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {
+                deletingOrder && <DeleteConfirmModalForMyOrder
+                    deletingOrder={deletingOrder}
+                    refetch={refetch}
+                    setDeletingOrder={setDeletingOrder}
+                >
+                </DeleteConfirmModalForMyOrder>
+            }
         </div>
     );
 };
