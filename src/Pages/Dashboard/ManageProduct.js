@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
-    const { data: tools, isLoading } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()));
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>
@@ -30,8 +30,9 @@ const ManageProduct = () => {
                         {
                             tools.map((tool, index) => <ProductRow
                                 index={index}
-                                key={tool._key}
+                                key={tool._id}
                                 tool={tool}
+                                refetch={refetch}
                             ></ProductRow>)
                         }
 
