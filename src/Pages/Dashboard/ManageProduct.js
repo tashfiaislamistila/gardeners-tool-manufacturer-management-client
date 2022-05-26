@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import useTools from '../../CustomHook/useTools';
 import Loading from '../Shared/Loading';
+import DeleteConfirmModal from './DeleteConfirmModal';
 import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
+    const [deletingProduct, setDeletingProduct] = useState(null);
     const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()));
 
     if (isLoading) {
@@ -33,12 +35,18 @@ const ManageProduct = () => {
                                 key={tool._id}
                                 tool={tool}
                                 refetch={refetch}
+                                setDeletingProduct={setDeletingProduct}
                             ></ProductRow>)
                         }
 
                     </tbody>
                 </table>
             </div>
+            {deletingProduct && <DeleteConfirmModal
+                deletingProduct={deletingProduct}
+                refetch={refetch}
+                setDeletingProduct={setDeletingProduct}
+            ></DeleteConfirmModal>}
         </div>
     );
 };
