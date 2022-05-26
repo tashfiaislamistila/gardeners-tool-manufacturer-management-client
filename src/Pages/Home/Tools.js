@@ -17,9 +17,11 @@ const Tools = () => {
             </div>
             <div>
                 {
-                    tools.slice(0, 6).map(tool => <Tool
-                        key={tool.id}
-                        tool={tool}></Tool>)
+                    [...tools].reverse().slice(0, 6).map(tool =>
+                        <Tool
+                            key={tool.id}
+                            tool={tool}
+                        ></Tool>)
                 }
             </div>
             <div className='text-center mt-9'>
