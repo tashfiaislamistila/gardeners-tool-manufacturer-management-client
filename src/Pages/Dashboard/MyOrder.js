@@ -1,11 +1,14 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
     const [user] = useAuthState(auth);
+    const navigate = useNavigate()
     // const [orders, setOrders] = useState([]);
 
     //use React Query
@@ -16,7 +19,16 @@ const MyOrder = () => {
         }
     })
 
-        .then(res => res.json()))
+        .then(res => {
+            console.log('res', res);
+            if (res.status === 401 || res.status === 403) {
+                signOut(auth);
+                localStorage.removeItem('accessToken');
+                navigate('/')
+            }
+            return res.json()
+        })
+    )
     if (isLoading) {
         return <Loading></Loading>
     }
