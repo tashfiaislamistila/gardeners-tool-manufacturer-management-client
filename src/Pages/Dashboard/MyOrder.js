@@ -60,7 +60,7 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((order, index) => <tr>
+                            orders?.map((order, index) => <tr className='active'>
                                 <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
                                 <td>{order.toolName}</td>
