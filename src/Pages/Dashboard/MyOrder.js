@@ -9,7 +9,13 @@ const MyOrder = () => {
     // const [orders, setOrders] = useState([]);
 
     //use React Query
-    const { data: orders, isLoading } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
+    const { data: orders, isLoading } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+
         .then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
@@ -31,7 +37,8 @@ const MyOrder = () => {
                     <thead>
                         <tr>
                             <th>serial</th>
-                            <th>Order Name</th>
+                            <th>Buyers Name</th>
+                            <th>Tools Name</th>
                             <th>Order Quantity</th>
                             <th>Customer Email</th>
                             <th>Phone Number</th>
@@ -44,6 +51,7 @@ const MyOrder = () => {
                             orders?.map((order, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
+                                <td>{order.toolName}</td>
                                 <td>{order.orderQuantity}</td>
                                 <td>{order.customerEmail}</td>
                                 <td>{order.address}</td>
