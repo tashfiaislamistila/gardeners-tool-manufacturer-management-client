@@ -49,7 +49,6 @@ const AddProduct = () => {
                 }
             })
     }
-
     return (
         <div>
             <h2 className='text-4xl text-center text-secondary mt-4'>Add a Tool</h2>

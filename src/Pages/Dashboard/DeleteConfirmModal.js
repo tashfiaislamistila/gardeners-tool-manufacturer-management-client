@@ -23,10 +23,6 @@ const DeleteConfirmModal = ({ deletingProduct, refetch, setDeletingProduct }) =>
 
     return (
         <div>
-
-
-
-
             <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
