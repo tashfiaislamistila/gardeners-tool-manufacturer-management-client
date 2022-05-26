@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const imageStorageKey = '1097fd383e840edafee035d5c1d37157';
 
@@ -30,14 +31,22 @@ const AddProduct = () => {
                     fetch('http://localhost:5000/tools', {
                         method: 'POST',
                         headers: {
-                            'content-type': 'application/json'
-                        }
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
                     })
-
-
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success('Tool added')
+                                reset();
+                            }
+                            else {
+                                toast.error('Tool not added');
+                            }
+                        })
                 }
-
-
             })
     }
 
@@ -84,7 +93,7 @@ const AddProduct = () => {
                         <label class="label">
                             <span class="label-text">Description</span>
                         </label>
-                        <input type="text" placeholder="name" class="input input-bordered w-full max-w-xs"
+                        <input type="text" placeholder="description" class="input input-bordered w-full max-w-xs"
                             {...register("description", {
                                 required: {
                                     value: true,
@@ -114,7 +123,7 @@ const AddProduct = () => {
                             <span class="label-text">Available Quantity</span>
                         </label>
                         <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs"
-                            {...register("quantity", {
+                            {...register("availableQuantity", {
                                 required: {
                                     value: true,
                                     message: 'quantity is required'
@@ -127,7 +136,7 @@ const AddProduct = () => {
                             <span class="label-text">Minimum Quantity</span>
                         </label>
                         <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs"
-                            {...register("quantity", {
+                            {...register("minimumQuantity", {
                                 required: {
                                     value: true,
                                     message: 'quantity is required'
