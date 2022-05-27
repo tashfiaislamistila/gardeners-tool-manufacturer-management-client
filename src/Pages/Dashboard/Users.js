@@ -28,7 +28,6 @@ const Users = () => {
                         </tr>
                     </thead>
                     <tbody>
-
                         {
                             users.map((user, index) => <UserRow
                                 key={user._id}
@@ -37,7 +36,6 @@ const Users = () => {
                                 refetch={refetch}
                             ></UserRow>)
                         }
-
                     </tbody>
                 </table>
             </div>

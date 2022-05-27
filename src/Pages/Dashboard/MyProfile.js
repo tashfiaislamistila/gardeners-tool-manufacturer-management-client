@@ -32,7 +32,7 @@ const MyProfile = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                toast.success('Purchase confirmed')
+                toast.success('User Added')
             })
 
 
