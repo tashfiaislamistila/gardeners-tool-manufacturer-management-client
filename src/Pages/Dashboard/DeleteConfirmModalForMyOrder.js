@@ -3,9 +3,7 @@ import { toast } from 'react-toastify';
 
 const DeleteConfirmModalForMyOrder = ({ deletingOrder, refetch, setDeletingOrder }) => {
 
-    const { name, _id } = deletingOrder;
-
-    const { toolName } = deletingOrder;
+    const { toolName, _id } = deletingOrder;
 
     const handleDelete = () => {
         fetch(`http://localhost:5000/orders/${_id}`, {
@@ -29,7 +27,7 @@ const DeleteConfirmModalForMyOrder = ({ deletingOrder, refetch, setDeletingOrder
             <input type="checkbox" id="delete-confirm-modal-for-my-order" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are You sure you want to delete? {toolName}</h3>
+                    <h3 class="font-bold text-lg text-red-500">Are You sure you want to delete? <span className='text-neutral'>{toolName}</span></h3>
                     <p class="py-4">If you delete tool you can not recovery it!</p>
                     <div class="modal-action">
                         <button onClick={() => handleDelete()} class="btn btn-xs btn-error ">Delete</button>

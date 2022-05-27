@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import DeleteConfirmModalForMyOrder from './DeleteConfirmModalForMyOrder';
@@ -59,6 +59,7 @@ const MyOrder = () => {
                             <th>Address</th>
                             <th>Total Price</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,9 +74,13 @@ const MyOrder = () => {
                                 <td>{order.phone}</td>
                                 <td>{order.totalPrice}</td>
                                 <td><label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label></td>
+                                <td>
+                                    {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-success">Pay</button></Link>}
+                                    {(order.totalPrice && order.paid) && <span
+                                        className="btn btn-success">Paid</span>}
+                                </td>
                             </tr>)
                         }
-
                     </tbody>
                 </table>
             </div>
@@ -83,8 +88,7 @@ const MyOrder = () => {
                 deletingOrder && <DeleteConfirmModalForMyOrder
                     deletingOrder={deletingOrder}
                     refetch={refetch}
-                    setDeletingOrder={setDeletingOrder}
-                >
+                    setDeletingOrder={setDeletingOrder}>
                 </DeleteConfirmModalForMyOrder>
             }
         </div>
