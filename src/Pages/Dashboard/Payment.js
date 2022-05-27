@@ -21,7 +21,6 @@ const Payment = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(orders);
 
     return (
         <div>

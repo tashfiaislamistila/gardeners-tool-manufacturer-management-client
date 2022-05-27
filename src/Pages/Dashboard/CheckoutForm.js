@@ -5,11 +5,11 @@ const CheckoutForm = ({ orders }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
-    // const [processing, setProcessing] = useState(false);
+    const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [success, setSuccess] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { totalPrice, customerName, customerEmail } = orders;
+    const { _id, totalPrice, customerName, customerEmail } = orders;
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -46,7 +46,8 @@ const CheckoutForm = ({ orders }) => {
 
         setCardError(error?.message || '')
         setSuccess('');
-        // setProcessing(true);
+        setProcessing(true);
+
         //confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
@@ -62,7 +63,7 @@ const CheckoutForm = ({ orders }) => {
         );
         if (intentError) {
             setCardError(intentError?.message);
-            // setProcessing(false);
+            setProcessing(false);
         }
         else {
             setCardError('');
@@ -70,8 +71,25 @@ const CheckoutForm = ({ orders }) => {
             console.log(paymentIntent);
             setSuccess('Congratulation! Your payment is completed.')
 
+            //store payment on database
+            const payment = {
+                orders: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/orders/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
         }
-
     }
     return (
         <>
