@@ -112,12 +112,8 @@ const PurchaseTools = () => {
                     <p className='text-primary'>Total Price: ${totalPrice}</p>
                     <input type="submit" disabled={disabled} value="Purchase" placeholder="Type here" className="btn btn-primary w-full max-w-xs" />
                 </form>
-
             </div>
         </div>
-
-
-
     );
 }
 export default PurchaseTools;
