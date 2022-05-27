@@ -12,16 +12,16 @@ const Payment = () => {
     const { id } = useParams();
     const url = `http://localhost:5000/orders/${id}`;
 
-    const { data: orders, isLoading } = useQuery(['order', id], () => fetch(url, {
+    const { data: orders, isLoading } = useQuery(['orders', id], () => fetch(url, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()))
-
     if (isLoading) {
         return <Loading></Loading>
     }
+    console.log(orders);
 
     return (
         <div>
@@ -36,7 +36,7 @@ const Payment = () => {
             <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
                 <div class="card-body">
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm orders={orders} />
                     </Elements>
                 </div>
             </div>
