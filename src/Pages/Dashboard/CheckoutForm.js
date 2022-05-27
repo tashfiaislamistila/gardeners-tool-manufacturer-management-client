@@ -6,9 +6,10 @@ const CheckoutForm = ({ orders }) => {
     const elements = useElements();
     const [cardError, setCardError] = useState('');
     // const [processing, setProcessing] = useState(false);
-    // const [success, setSuccess] = useState('');
+    const [transactionId, setTransactionId] = useState('');
+    const [success, setSuccess] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-    const { _id, totalPrice, patientName, patient } = orders;
+    const { totalPrice, customerName, customerEmail } = orders;
 
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
@@ -44,8 +45,33 @@ const CheckoutForm = ({ orders }) => {
         });
 
         setCardError(error?.message || '')
-        // setSuccess('');
+        setSuccess('');
         // setProcessing(true);
+        //confirm card payment
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: customerName,
+                        email: customerEmail
+                    },
+                },
+            },
+        );
+        if (intentError) {
+            setCardError(intentError?.message);
+            // setProcessing(false);
+        }
+        else {
+            setCardError('');
+            setTransactionId(paymentIntent.id);
+            console.log(paymentIntent);
+            setSuccess('Congratulation! Your payment is completed.')
+
+        }
+
     }
     return (
         <>
@@ -71,6 +97,12 @@ const CheckoutForm = ({ orders }) => {
             </form>
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
+            }
+            {
+                success && <div className='text-green-700'>
+                    <p>{success} </p>
+                    <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span></p>
+                </div>
             }
         </>
     );
