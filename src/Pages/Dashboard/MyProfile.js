@@ -39,7 +39,7 @@ const MyProfile = () => {
     }
     return (
         <div>
-            <h2 className='text-primary text-4xl mt-9'>My Profile</h2>
+            <h2 className='text-secondary text-4xl mt-9'>My Profile</h2>
             <form onSubmit={handlePurchase} className='grid grid-cols-1 gap-3 justify-items-center mt-4 w-1/3'>
 
                 <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />

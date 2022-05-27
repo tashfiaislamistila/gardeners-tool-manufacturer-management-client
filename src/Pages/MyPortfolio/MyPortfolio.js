@@ -1,9 +1,13 @@
 import React from 'react';
 
+
 const MyPortfolio = () => {
     return (
         <div>
-            <h2>This is my portfolio route</h2>
+            <h2 className='text-5xl text-center text-primary mt-4'> My Portfolio </h2>
+            <div>
+
+            </div>
         </div>
     );
 };

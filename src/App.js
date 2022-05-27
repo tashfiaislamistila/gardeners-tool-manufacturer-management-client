@@ -24,6 +24,8 @@ import ManageProduct from './Pages/Dashboard/ManageProduct';
 import ManageOrders from './Pages/Dashboard/ManageOrders';
 import Payment from './Pages/Dashboard/Payment';
 import RequireUser from './Pages/Login/RequireUser';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="tool" element={<AllTools />} />
+        <Route path="portfolio" element={<MyPortfolio />} />
         <Route path='/tools/:toolsId' element={
           <RequireAuth>
             <PurchaseTools />
@@ -53,6 +56,7 @@ function App() {
         <Route path="review" element={<Review />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
       <Footer></Footer>
