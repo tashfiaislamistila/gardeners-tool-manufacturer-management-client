@@ -64,7 +64,7 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((order, index) => <tr className='active'>
+                            orders?.map((order, index) => <tr className='active' key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
                                 <td>{order.toolName}</td>
@@ -73,11 +73,14 @@ const MyOrder = () => {
                                 <td>{order.address}</td>
                                 <td>{order.phone}</td>
                                 <td>{order.totalPrice}</td>
-                                <td><label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label></td>
+                                <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label>}</td>
                                 <td>
                                     {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-success">Pay</button></Link>}
-                                    {(order.totalPrice && order.paid) && <span
-                                        className="text-primary">Paid</span>}
+                                    {(order.totalPrice && order.paid) && <div>
+                                        <p><span className="text-primary">Paid</span></p>
+                                        <p>Transaction Id : <span
+                                            className="text-primary">{order.transactionId}</span></p>
+                                    </div>}
                                 </td>
                             </tr>)
                         }
