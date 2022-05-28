@@ -12,7 +12,7 @@ const GardeningDescription = () => {
         )
     }
     return (
-        <div className='flex justify-center mb-6 mt-6 sm:grid-cols-1  '>
+        <div className='flex justify-center mb-9 mt-6 sm:grid-cols-1  '>
             <div className="hero " style={{ backgroundImage: "url(" + "https://i.ibb.co/pzXVh3q/banner5.png" + ")", height: "100vh", width: "150vh", }}>
                 <div className="hero-overlay bg-opacity-50 "></div>
                 <div className="hero-content text-center text-neutral-content ">
