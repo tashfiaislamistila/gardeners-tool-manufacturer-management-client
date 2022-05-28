@@ -87,11 +87,11 @@ const PurchaseTools = () => {
     }
 
     return (
-        <div className="">
+        <div className="align">
             <h1 className='text-center text-primary text-4xl mt-9'>Purchase Details</h1>
-            <div className='flex justify-center items-center gap-4 pt-10'>
-                <div className='card lg:card-side bg-base-w-2/4  mt-9 p-4 text-center'>
-                    <div className="card w-96  bg-base-100 shadow-xl">
+            <div className='grid grid-cols-1 justify-items-center'>
+                <div className=' card lg:card-side bg-base-w-2/4 max-w-md  mt-9 p-4 text-center'>
+                    <div className="card w-100  bg-base-100 shadow-xl">
                         <figure><img src={img} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{name}</h2>
@@ -102,7 +102,7 @@ const PurchaseTools = () => {
                         </div>
                     </div>
                 </div>
-                <form onSubmit={handlePurchase} className='grid grid-cols-1 gap-3 justify-items-center mt-2 w-1/3'>
+                <form onSubmit={handlePurchase} className='grid grid-cols-1 gap-3 justify-items-center w-full mt-2 '>
                     <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                     <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                     <input type="text" name='address' placeholder="Your Address" className="input input-bordered w-full max-w-xs" />

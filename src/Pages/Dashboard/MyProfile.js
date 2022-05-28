@@ -37,9 +37,9 @@ const MyProfile = () => {
 
     }
     return (
-        <div>
+        <div className='grid justify-items-center'>
             <h2 className='text-secondary text-4xl mt-9'>My Profile</h2>
-            <form onSubmit={handleProfile} className='grid grid-cols-1 gap-3 justify-items-center mt-4 w-1/3'>
+            <form onSubmit={handleProfile} className='grid grid-cols-1 gap-3 justify-items-center w-full mt-4 md:w-1/3'>
 
                 <input type="name" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
 

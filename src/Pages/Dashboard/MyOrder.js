@@ -48,9 +48,6 @@ const MyOrder = () => {
                             <th>Buyers Name</th>
                             <th>Tools Name</th>
                             <th>Quantity</th>
-                            <th>Email</th>
-                            <th>Number</th>
-                            <th>Address</th>
                             <th>Total Price</th>
                             <th>Action</th>
                             <th>Payment</th>
@@ -65,9 +62,6 @@ const MyOrder = () => {
                                 <td>{order.customerName}</td>
                                 <td>{order.toolName}</td>
                                 <td>{order.orderQuantity}</td>
-                                <td>{order.customerEmail}</td>
-                                <td>{order.address}</td>
-                                <td>{order.phone}</td>
                                 <td>{order.totalPrice}</td>
                                 <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} htmlFor="delete-confirm-modal-for-my-order" className="btn modal-button">Delete</label>}</td>
                                 <td>
