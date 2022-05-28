@@ -72,10 +72,14 @@ const CheckoutForm = ({ orders }) => {
             setSuccess('Congratulation! Your payment is completed.')
 
             //store payment on database
+
+
             const payment = {
                 orders: _id,
-                transactionId: paymentIntent.id
+                transactionId: paymentIntent.id,
+                status: 'pending'
             }
+
             fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {

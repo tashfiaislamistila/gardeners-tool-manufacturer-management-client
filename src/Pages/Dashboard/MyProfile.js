@@ -5,8 +5,7 @@ import auth from '../../firebase.init';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    const [userProfile, setUserProfile] = useState({});
-    console.log(user);
+    // console.log(user);
 
 
     const handleProfile = event => {

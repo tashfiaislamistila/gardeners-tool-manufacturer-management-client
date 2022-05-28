@@ -32,7 +32,7 @@ const SignUp = () => {
     }
 
     if (token) {
-        navigate('/tools/:toolsId')
+        navigate('/tool')
     }
 
     const onSubmit = async data => {
