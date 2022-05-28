@@ -6,7 +6,13 @@ const usePurchaseTools = toolsId => {
     useEffect(() => {
         const url = `http://localhost:5000/tools/${toolsId}`;
         console.log(url);
-        fetch(url)
+        fetch(url, {
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+
+            }
+        })
             .then(res => res.json())
             .then(data =>
                 setTool(data));

@@ -59,7 +59,9 @@ const PurchaseTools = () => {
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+
             },
             body: JSON.stringify(purchase)
         })
@@ -72,7 +74,8 @@ const PurchaseTools = () => {
         fetch(`http://localhost:5000/tools/${toolsId}`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(newProduct)
         })
