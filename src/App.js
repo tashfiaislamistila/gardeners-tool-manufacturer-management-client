@@ -26,6 +26,7 @@ import Payment from './Pages/Dashboard/Payment';
 import RequireUser from './Pages/Login/RequireUser';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/Shared/NotFound';
+import AllReviews from './Pages/Home/AllReviews';
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
           <Route path="manageOrders" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>
         </Route>
         <Route path="blogs" element={<Blogs />} />
-        <Route path="allReview" element={<Review />} />
+        <Route path="allReview" element={<AllReviews />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="*" element={<NotFound></NotFound>}></Route>
