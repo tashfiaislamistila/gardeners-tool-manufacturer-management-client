@@ -4,7 +4,7 @@ const usePurchaseTools = toolsId => {
     const [tool, setTool] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${toolsId}`;
+        const url = `https://dry-waters-06111.herokuapp.com/tools/${toolsId}`;
         console.log(url);
         fetch(url, {
             headers: {

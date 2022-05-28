@@ -10,7 +10,7 @@ const AllReviews = () => {
             <div className=' grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-4 pt-10' >
                 {
                     reviews.map(review => <ReviewComponent
-                        key={review.id}
+                        key={review._id}
                         review={review}
                     ></ReviewComponent>)
                 }

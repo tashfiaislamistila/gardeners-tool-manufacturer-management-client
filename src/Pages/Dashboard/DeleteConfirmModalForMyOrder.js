@@ -6,7 +6,7 @@ const DeleteConfirmModalForMyOrder = ({ deletingOrder, refetch, setDeletingOrder
     const { toolName, _id } = deletingOrder;
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/orders/${_id}`, {
+        fetch(`https://dry-waters-06111.herokuapp.com/orders/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,14 +24,14 @@ const DeleteConfirmModalForMyOrder = ({ deletingOrder, refetch, setDeletingOrder
     }
     return (
         <div>
-            <input type="checkbox" id="delete-confirm-modal-for-my-order" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are You sure you want to delete? <span className='text-neutral'>{toolName}</span></h3>
-                    <p class="py-4">If you delete tool you can not recovery it!</p>
-                    <div class="modal-action">
-                        <button onClick={() => handleDelete()} class="btn btn-xs btn-error ">Delete</button>
-                        <label for="delete-confirm-modal-for-my-order" class="btn-xs">Cancel</label>
+            <input type="checkbox" id="delete-confirm-modal-for-my-order" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg text-red-500">Are You sure you want to delete? <span className='text-neutral'>{toolName}</span></h3>
+                    <p className="py-4">If you delete tool you can not recovery it!</p>
+                    <div className="modal-action">
+                        <button onClick={() => handleDelete()} className="btn btn-xs btn-error ">Delete</button>
+                        <label htmlFor="delete-confirm-modal-for-my-order" className="btn-xs">Cancel</label>
                     </div>
                 </div>
             </div>

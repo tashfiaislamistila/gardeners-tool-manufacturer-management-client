@@ -12,7 +12,7 @@ const CheckoutForm = ({ orders }) => {
     const { _id, totalPrice, customerName, customerEmail } = orders;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://dry-waters-06111.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({ orders }) => {
                 status: 'pending'
             }
 
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://dry-waters-06111.herokuapp.com/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

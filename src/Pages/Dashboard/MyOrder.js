@@ -12,17 +12,17 @@ const MyOrder = () => {
 
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
-    // const [orders, setOrders] = useState([]);
+
 
     //use React Query
-    const { data: orders, isLoading, refetch } = useQuery('order', () => fetch(`http://localhost:5000/orders?customerEmail=${user.email}`, {
+    const { data: orders, isLoading, refetch } = useQuery('order', () => fetch(`https://dry-waters-06111.herokuapp.com/orders?customerEmail=${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     })
         .then(res => {
-            // console.log('res', res);
+
             if (res.status === 401 || res.status === 403) {
                 signOut(auth);
                 localStorage.removeItem('accessToken');
@@ -35,19 +35,13 @@ const MyOrder = () => {
         return <Loading></Loading>
     }
 
-    // useEffect(() => {
-    //     if (user) {
-    //         fetch(`http://localhost:5000/orders?customerEmail=${user.email}`)
-    //             .then(res => res.json())
-    //             .then(data => setOrders(data));
-    //     }
-    // }, [user])
+
 
     return (
         <div>
             <h1 className='  text-secondary text-4xl mt-9 mb-4 '>My Orders: {orders.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>serial</th>
@@ -64,7 +58,9 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((order, index) => <tr className='active' key={order._id}>
+                            orders?.map((order, index) => <tr
+                                className='active'
+                                key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.customerName}</td>
                                 <td>{order.toolName}</td>
@@ -73,7 +69,7 @@ const MyOrder = () => {
                                 <td>{order.address}</td>
                                 <td>{order.phone}</td>
                                 <td>{order.totalPrice}</td>
-                                <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label>}</td>
+                                <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} htmlFor="delete-confirm-modal-for-my-order" className="btn modal-button">Delete</label>}</td>
                                 <td>
                                     {(order.totalPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className="btn btn-success">Pay</button></Link>}
                                     {(order.totalPrice && order.paid) && <div>

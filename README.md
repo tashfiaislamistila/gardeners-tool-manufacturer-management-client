@@ -1,8 +1,35 @@
-# Getting Started with Create React App
+# Live site link
+https://gardeners-tool-management.web.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Client side link git hub 
+https://github.com/programming-hero-web-course1/manufacturer-website-client-side-tashfiaislamistila
+
+
+## Server side git hub link
+https://github.com/programming-hero-web-course1/manufacturer-website-server-side-tashfiaislamistila
+
+## Description of this Project
+* This is a gardening tools manufacturer website.
+* In this project there is a home page where you can see the tools card you can purchase tools from this website.
+* For purchasing tool you have to create an account of this website.
+* There is a Dashboard Admin and user both can use the dashboard.
+* In this dashboard there is a side menu bar in dashboard 'My Profile' route is the entry point of the dashboard both admin and user can see this.
+* In this dashboard there is a also many side menu if you are admin you can see the 'Make Admin Page','Add tools Page','Manage tools','Manage Orders' options.
+* If you are user you can see the 'My Orders','Reviews' options.
+* In this website every route works differently.
+
+## Technology I used in this website
+* Daisy UI
+* JavaScript
+* React Router 
+* Mongodb 
+* Express
+* JavaScript Web token
+* React FontAwesome
+* React hook form
+* React Query
 
 In the project directory, you can run:
 

@@ -56,7 +56,7 @@ const PurchaseTools = () => {
         setTool(newProduct);
 
         //Posting the data to the database with a new collection
-        fetch('http://localhost:5000/orders', {
+        fetch('https://dry-waters-06111.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -71,7 +71,7 @@ const PurchaseTools = () => {
             })
 
         //Update Available Quantity in the Database after purchasing product
-        fetch(`http://localhost:5000/tools/${toolsId}`, {
+        fetch(`https://dry-waters-06111.herokuapp.com/tools/${toolsId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

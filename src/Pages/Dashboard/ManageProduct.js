@@ -6,7 +6,7 @@ import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
     const [deletingProduct, setDeletingProduct] = useState(null);
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()));
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch('https://dry-waters-06111.herokuapp.com/tools').then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>
@@ -15,8 +15,8 @@ const ManageProduct = () => {
     return (
         <div>
             <h2 className='text-center  text-secondary text-2xl mb-4 mt-4'>Manage Tool: {tools.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>

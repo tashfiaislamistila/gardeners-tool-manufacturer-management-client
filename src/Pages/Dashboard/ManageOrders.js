@@ -8,7 +8,7 @@ const ManageOrders = () => {
 
     const [deletingOrder, setDeletingOrder] = useState(null);
 
-    const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('http://localhost:5000/manageOrders', {
+    const { data: manageOrders, isLoading, refetch } = useQuery('manageOrders', () => fetch('https://dry-waters-06111.herokuapp.com/manageOrders', {
         method: 'GET',
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -38,7 +38,7 @@ const ManageOrders = () => {
             status: "Approved and shipped"
         }
 
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://dry-waters-06111.herokuapp.com/orders/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -53,9 +53,9 @@ const ManageOrders = () => {
     return (
         <div>
 
-            <h2>Manage Orders</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h2 className='text-secondary text-2xl mt-4'>Manage Orders</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>serial</th>
@@ -76,12 +76,12 @@ const ManageOrders = () => {
                                 <td>{manageOrder.orderQuantity}</td>
                                 <td>{manageOrder.customerEmail}</td>
                                 <td>{manageOrder.totalPrice}</td>
-                                {/* <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} for="delete-confirm-modal-for-my-order" class="btn modal-button">Delete</label>}</td> */}
+                                {/* <td>{!order.paid && <label onClick={() => setDeletingOrder(order)} htmlFor="delete-confirm-modal-for-my-order" className="btn modal-button">Delete</label>}</td> */}
                                 <td>
                                     {
                                         !manageOrder.paid && <div>
                                             <p><span className="text-primary">Unpaid</span></p>
-                                            <label onClick={() => setDeletingOrder(manageOrder)} for="delete-confirm-modal-for-my-order" class="btn btn-error font-bold">Delete</label>
+                                            <label onClick={() => setDeletingOrder(manageOrder)} htmlFor="delete-confirm-modal-for-my-order" className="btn btn-error font-bold">Delete</label>
                                         </div>
                                     }
                                     {
@@ -99,7 +99,7 @@ const ManageOrders = () => {
                                         (manageOrder.paid && manageOrder.status === 'pending') &&
                                         <div>
 
-                                            <label onClick={() => manageShip(manageOrder._id)} class="btn font-bold">Ship</label>
+                                            <label onClick={() => manageShip(manageOrder._id)} className="btn font-bold">Ship</label>
 
                                         </div>
                                     }

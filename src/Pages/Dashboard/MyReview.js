@@ -20,7 +20,7 @@ const MyReview = () => {
         }
         console.log(reviews);
         //added review
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://dry-waters-06111.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

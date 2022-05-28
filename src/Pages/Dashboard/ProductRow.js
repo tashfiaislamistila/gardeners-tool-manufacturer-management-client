@@ -7,15 +7,15 @@ const ProductRow = ({ tool, index, refetch, setDeletingProduct }) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td><div class="avatar">
-                <div class="w-16 rounded">
+            <td><div className="avatar">
+                <div className="w-16 rounded">
                     <img src={img} alt={name} />
                 </div>
             </div></td>
             <td>{name}</td>
             <td>{availableQuantity}</td>
             <td>
-                <label onClick={() => setDeletingProduct(tool)} for="delete-confirm-modal" class="btn modal-button">Delete</label>
+                <label onClick={() => setDeletingProduct(tool)} htmlFor="delete-confirm-modal" className="btn modal-button">Delete</label>
             </td>
         </tr>
     );

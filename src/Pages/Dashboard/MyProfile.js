@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    // console.log(user);
+
 
 
     const handleProfile = event => {
@@ -21,7 +21,7 @@ const MyProfile = () => {
 
 
         //Update Available Quantity in the Database after purchasing product
-        fetch(`http://localhost:5000/profiles/${profile.email}`, {
+        fetch(`https://dry-waters-06111.herokuapp.com/profiles/${profile.email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ const AllTools = () => {
             <div>
                 {
                     tools.map(tool => <Tool
-                        key={tool.id}
+                        key={tool._id}
                         tool={tool}></Tool>)
                 }
             </div>

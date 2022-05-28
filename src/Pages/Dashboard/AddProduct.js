@@ -28,7 +28,7 @@ const AddProduct = () => {
                         minimumQuantity: data.minimumQuantity,
                         img: img
                     }
-                    fetch('http://localhost:5000/tools', {
+                    fetch('https://dry-waters-06111.herokuapp.com/tools', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -54,11 +54,11 @@ const AddProduct = () => {
             <h2 className='text-4xl text-center text-secondary mt-4'>Add a Tool</h2>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div class="form-control w-full max-w-xs ">
-                        <label class="label">
-                            <span class="label-text">Name</span>
+                    <div className="form-control w-full max-w-xs ">
+                        <label className="label">
+                            <span className="label-text">Name</span>
                         </label>
-                        <input type="text" placeholder="name" class="input input-bordered w-full max-w-xs"
+                        <input type="text" placeholder="name" className="input input-bordered w-full max-w-xs"
                             {...register("name", {
                                 required: {
                                     value: true,
@@ -71,11 +71,11 @@ const AddProduct = () => {
                         </label>
                     </div>
 
-                    <div class="form-control w-full max-w-xs ">
-                        <label class="label">
-                            <span class="label-text">Photo</span>
+                    <div className="form-control w-full max-w-xs ">
+                        <label className="label">
+                            <span className="label-text">Photo</span>
                         </label>
-                        <input type="file" class="input input-bordered w-full max-w-xs"
+                        <input type="file" className="input input-bordered w-full max-w-xs"
                             {...register("image", {
                                 required: {
                                     value: true,
@@ -88,11 +88,11 @@ const AddProduct = () => {
                         </label>
                     </div>
 
-                    <div class="form-control w-full max-w-xs ">
-                        <label class="label">
-                            <span class="label-text">Description</span>
+                    <div className="form-control w-full max-w-xs ">
+                        <label className="label">
+                            <span className="label-text">Description</span>
                         </label>
-                        <input type="text" placeholder="description" class="input input-bordered w-full max-w-xs"
+                        <input type="text" placeholder="description" className="input input-bordered w-full max-w-xs"
                             {...register("description", {
                                 required: {
                                     value: true,
@@ -102,11 +102,11 @@ const AddProduct = () => {
                         />
                     </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Price</span>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Price</span>
                         </label>
-                        <input type="text" placeholder="price" class="input input-bordered w-full max-w-xs"
+                        <input type="text" placeholder="price" className="input input-bordered w-full max-w-xs"
                             {...register("price", {
                                 required: {
                                     value: true,
@@ -117,11 +117,11 @@ const AddProduct = () => {
                         />
                     </div>
 
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Available Quantity</span>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Available Quantity</span>
                         </label>
-                        <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs"
+                        <input type="number" placeholder="quantity" className="input input-bordered w-full max-w-xs"
                             {...register("availableQuantity", {
                                 required: {
                                     value: true,
@@ -130,11 +130,11 @@ const AddProduct = () => {
                             })}
                         />
                     </div>
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text">Minimum Quantity</span>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Minimum Quantity</span>
                         </label>
-                        <input type="number" placeholder="quantity" class="input input-bordered w-full max-w-xs"
+                        <input type="number" placeholder="quantity" className="input input-bordered w-full max-w-xs"
                             {...register("minimumQuantity", {
                                 required: {
                                     value: true,
