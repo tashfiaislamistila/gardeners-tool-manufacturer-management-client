@@ -53,7 +53,7 @@ function App() {
           <Route path="manageOrders" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>
         </Route>
         <Route path="blogs" element={<Blogs />} />
-        <Route path="review" element={<Review />} />
+        <Route path="allReview" element={<Review />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="*" element={<NotFound></NotFound>}></Route>
