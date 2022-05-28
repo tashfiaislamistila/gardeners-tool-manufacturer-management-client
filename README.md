@@ -11,13 +11,14 @@ https://github.com/programming-hero-web-course1/manufacturer-website-client-side
 https://github.com/programming-hero-web-course1/manufacturer-website-server-side-tashfiaislamistila
 
 ## Description of this Project
-* This is a gardening tools manufacturer website.
+* This is a gardening tools manufacturer website.It is a payment gateway website.
 * In this project there is a home page where you can see the tools card you can purchase tools from this website.
 * For purchasing tool you have to create an account of this website.
 * There is a Dashboard Admin and user both can use the dashboard.
 * In this dashboard there is a side menu bar in dashboard 'My Profile' route is the entry point of the dashboard both admin and user can see this.
 * In this dashboard there is a also many side menu if you are admin you can see the 'Make Admin Page','Add tools Page','Manage tools','Manage Orders' options.
 * If you are user you can see the 'My Orders','Reviews' options.
+* There is a payment option, if you want to buy some tools you can purchase it by card payment.
 * In this website every route works differently.
 
 ## Technology I used in this website
@@ -26,6 +27,7 @@ https://github.com/programming-hero-web-course1/manufacturer-website-server-side
 * React Router 
 * Mongodb 
 * Express
+* Stripe
 * JavaScript Web token
 * React FontAwesome
 * React hook form
